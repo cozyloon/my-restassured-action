@@ -1,0 +1,32 @@
+name: 'Enhanced Postman to RestAssured Converter'
+description: 'Convert Postman collections to RestAssured test cases with advanced features.'
+author: 'Chathumal Dissanayaka'
+
+inputs:
+  collection_path:
+    description: 'Path to the Postman collection (.json file).'
+    required: true
+  output_directory:
+    description: 'Directory to store the generated RestAssured tests.'
+    required: false
+    default: './generated-tests'
+  enable_allure:
+    description: 'Enable Allure reporting.'
+    required: false
+    default: 'true'
+
+outputs:
+  test_path:
+    description: 'Path to the generated RestAssured test cases.'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    INPUT_COLLECTION_PATH: ${{ inputs.collection_path }}
+    INPUT_OUTPUT_DIRECTORY: ${{ inputs.output_directory }}
+    INPUT_ENABLE_ALLURE: ${{ inputs.enable_allure }}
+
+branding:
+  icon: 'check-circle'
+  color: 'purple'
