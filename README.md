@@ -71,7 +71,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Postman to RestAssured Converter
-        uses: your-username/postman-to-restassured-action@v1
+        uses: cozyloon/my-restassured-action@v1.0.0
         with:
           collection_path: 'path/to/your-collection.json'
           output_directory: './generated-tests'
