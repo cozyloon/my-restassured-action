@@ -90,3 +90,46 @@ Run mvn clean test with Allure integration.
 Generate a report at allure-report/.
 You can upload the report to GitHub as an artifact:
 
+```
+- name: Upload Allure Report
+  uses: actions/upload-artifact@v3
+  with:
+    name: allure-report
+    path: allure-report
+```
+
+🛠️ Development
+Clone the repository:
+```
+git clone https://github.com/your-username/postman-to-restassured-action.git
+cd postman-to-restassured-action
+```
+
+Install dependencies and run the converter locally:
+```
+npm install
+node scripts/convert.js path/to/your-collection.json ./output
+```
+
+Build Docker image for local testing:
+```
+docker build -t postman-to-restassured .
+```
+
+Test locally using Docker:
+```
+docker run --rm -e INPUT_COLLECTION_PATH="path/to/your-collection.json" -e INPUT_OUTPUT_DIRECTORY="./generated-tests" postman-to-restassured
+```
+
+📣 Contributing
+Contributions are welcome!
+
+Fork the repository.
+Create a new branch (feature/new-feature).
+Submit a Pull Request.
+
+📄 License
+This project is licensed under the MIT License. See the LICENSE file for details.
+```
+Feel free to adjust any details such as the repository name or paths to better suit your project. Let me know if you'd like any further modifications! 😊
+```
